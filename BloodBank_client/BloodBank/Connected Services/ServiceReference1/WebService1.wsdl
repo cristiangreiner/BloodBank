@@ -1,0 +1,1259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="doctorSecretCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="donorCNP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="donorDOB" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteUserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updateUserUsername">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newUsername" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateUserUsernameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateUserUsernameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateUserPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateUserPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateUserPasswordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDonorID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDonorIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDonorIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDonorCNP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_donor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDonorCNPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDonorCNPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDonorFirstName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_donor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDonorFirstNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDonorFirstNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDonorLastName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_donor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDonorLastNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDonorLastNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDonorDOB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_donor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDonorDOBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDonorDOBResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateDonorDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_donor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newCNP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newFirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newLastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newDOBshortFormat" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateDonorDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateDonorDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDoctorID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDoctorIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDoctorIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDoctorFirstName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_doc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDoctorFirstNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDoctorFirstNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDoctorLastName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_doc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDoctorLastNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDoctorLastNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDoctorCenterID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_doc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDoctorCenterIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDoctorCenterIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateDoctorDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_doc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newFirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newLastName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="newCenterID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateDoctorDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateDoctorDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDonationDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_donation" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDonationDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDonationDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addDonation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_donor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID_center" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dateShortFormat" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addDonationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addDonationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="completeDonation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_donation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID_doc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="blood_type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="completeDonationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="completeDonationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserPastDonations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_donor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserPastDonationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserPastDonationsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getUserFutureDonations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_donor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserFutureDonationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserFutureDonationsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterPastDonations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_center" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterPastDonationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCenterPastDonationsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterFutureDonations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_center" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterFutureDonationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCenterFutureDonationsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterCity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID_center" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterCityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCenterCityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterCountyList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCenterCountyListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCenterCountyListResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterTownList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="county" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterTownListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCenterTownListResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="town" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCenterAddressResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="town" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCenterEmailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="town" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCenterIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCenterIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="loginSoapIn">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapOut">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="addUserSoapIn">
+    <wsdl:part name="parameters" element="tns:addUser" />
+  </wsdl:message>
+  <wsdl:message name="addUserSoapOut">
+    <wsdl:part name="parameters" element="tns:addUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteUserSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteUser" />
+  </wsdl:message>
+  <wsdl:message name="deleteUserSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateUserUsernameSoapIn">
+    <wsdl:part name="parameters" element="tns:updateUserUsername" />
+  </wsdl:message>
+  <wsdl:message name="updateUserUsernameSoapOut">
+    <wsdl:part name="parameters" element="tns:updateUserUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateUserPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:updateUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="updateUserPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:updateUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDonorIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getDonorID" />
+  </wsdl:message>
+  <wsdl:message name="getDonorIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getDonorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDonorCNPSoapIn">
+    <wsdl:part name="parameters" element="tns:getDonorCNP" />
+  </wsdl:message>
+  <wsdl:message name="getDonorCNPSoapOut">
+    <wsdl:part name="parameters" element="tns:getDonorCNPResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDonorFirstNameSoapIn">
+    <wsdl:part name="parameters" element="tns:getDonorFirstName" />
+  </wsdl:message>
+  <wsdl:message name="getDonorFirstNameSoapOut">
+    <wsdl:part name="parameters" element="tns:getDonorFirstNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDonorLastNameSoapIn">
+    <wsdl:part name="parameters" element="tns:getDonorLastName" />
+  </wsdl:message>
+  <wsdl:message name="getDonorLastNameSoapOut">
+    <wsdl:part name="parameters" element="tns:getDonorLastNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDonorDOBSoapIn">
+    <wsdl:part name="parameters" element="tns:getDonorDOB" />
+  </wsdl:message>
+  <wsdl:message name="getDonorDOBSoapOut">
+    <wsdl:part name="parameters" element="tns:getDonorDOBResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateDonorDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:updateDonorDetails" />
+  </wsdl:message>
+  <wsdl:message name="updateDonorDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:updateDonorDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDoctorIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getDoctorID" />
+  </wsdl:message>
+  <wsdl:message name="getDoctorIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getDoctorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDoctorFirstNameSoapIn">
+    <wsdl:part name="parameters" element="tns:getDoctorFirstName" />
+  </wsdl:message>
+  <wsdl:message name="getDoctorFirstNameSoapOut">
+    <wsdl:part name="parameters" element="tns:getDoctorFirstNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDoctorLastNameSoapIn">
+    <wsdl:part name="parameters" element="tns:getDoctorLastName" />
+  </wsdl:message>
+  <wsdl:message name="getDoctorLastNameSoapOut">
+    <wsdl:part name="parameters" element="tns:getDoctorLastNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDoctorCenterIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getDoctorCenterID" />
+  </wsdl:message>
+  <wsdl:message name="getDoctorCenterIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getDoctorCenterIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateDoctorDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:updateDoctorDetails" />
+  </wsdl:message>
+  <wsdl:message name="updateDoctorDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:updateDoctorDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDonationDateSoapIn">
+    <wsdl:part name="parameters" element="tns:getDonationDate" />
+  </wsdl:message>
+  <wsdl:message name="getDonationDateSoapOut">
+    <wsdl:part name="parameters" element="tns:getDonationDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="addDonationSoapIn">
+    <wsdl:part name="parameters" element="tns:addDonation" />
+  </wsdl:message>
+  <wsdl:message name="addDonationSoapOut">
+    <wsdl:part name="parameters" element="tns:addDonationResponse" />
+  </wsdl:message>
+  <wsdl:message name="completeDonationSoapIn">
+    <wsdl:part name="parameters" element="tns:completeDonation" />
+  </wsdl:message>
+  <wsdl:message name="completeDonationSoapOut">
+    <wsdl:part name="parameters" element="tns:completeDonationResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserPastDonationsSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserPastDonations" />
+  </wsdl:message>
+  <wsdl:message name="getUserPastDonationsSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserPastDonationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserFutureDonationsSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserFutureDonations" />
+  </wsdl:message>
+  <wsdl:message name="getUserFutureDonationsSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserFutureDonationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCenterPastDonationsSoapIn">
+    <wsdl:part name="parameters" element="tns:getCenterPastDonations" />
+  </wsdl:message>
+  <wsdl:message name="getCenterPastDonationsSoapOut">
+    <wsdl:part name="parameters" element="tns:getCenterPastDonationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCenterFutureDonationsSoapIn">
+    <wsdl:part name="parameters" element="tns:getCenterFutureDonations" />
+  </wsdl:message>
+  <wsdl:message name="getCenterFutureDonationsSoapOut">
+    <wsdl:part name="parameters" element="tns:getCenterFutureDonationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCenterCitySoapIn">
+    <wsdl:part name="parameters" element="tns:getCenterCity" />
+  </wsdl:message>
+  <wsdl:message name="getCenterCitySoapOut">
+    <wsdl:part name="parameters" element="tns:getCenterCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCenterCountyListSoapIn">
+    <wsdl:part name="parameters" element="tns:getCenterCountyList" />
+  </wsdl:message>
+  <wsdl:message name="getCenterCountyListSoapOut">
+    <wsdl:part name="parameters" element="tns:getCenterCountyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCenterTownListSoapIn">
+    <wsdl:part name="parameters" element="tns:getCenterTownList" />
+  </wsdl:message>
+  <wsdl:message name="getCenterTownListSoapOut">
+    <wsdl:part name="parameters" element="tns:getCenterTownListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCenterAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:getCenterAddress" />
+  </wsdl:message>
+  <wsdl:message name="getCenterAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:getCenterAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCenterEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:getCenterEmail" />
+  </wsdl:message>
+  <wsdl:message name="getCenterEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:getCenterEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCenterIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getCenterID" />
+  </wsdl:message>
+  <wsdl:message name="getCenterIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getCenterIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="login">
+      <wsdl:input message="tns:loginSoapIn" />
+      <wsdl:output message="tns:loginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <wsdl:input message="tns:addUserSoapIn" />
+      <wsdl:output message="tns:addUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <wsdl:input message="tns:deleteUserSoapIn" />
+      <wsdl:output message="tns:deleteUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUserUsername">
+      <wsdl:input message="tns:updateUserUsernameSoapIn" />
+      <wsdl:output message="tns:updateUserUsernameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUserPassword">
+      <wsdl:input message="tns:updateUserPasswordSoapIn" />
+      <wsdl:output message="tns:updateUserPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDonorID">
+      <wsdl:input message="tns:getDonorIDSoapIn" />
+      <wsdl:output message="tns:getDonorIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDonorCNP">
+      <wsdl:input message="tns:getDonorCNPSoapIn" />
+      <wsdl:output message="tns:getDonorCNPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDonorFirstName">
+      <wsdl:input message="tns:getDonorFirstNameSoapIn" />
+      <wsdl:output message="tns:getDonorFirstNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDonorLastName">
+      <wsdl:input message="tns:getDonorLastNameSoapIn" />
+      <wsdl:output message="tns:getDonorLastNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDonorDOB">
+      <wsdl:input message="tns:getDonorDOBSoapIn" />
+      <wsdl:output message="tns:getDonorDOBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateDonorDetails">
+      <wsdl:input message="tns:updateDonorDetailsSoapIn" />
+      <wsdl:output message="tns:updateDonorDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDoctorID">
+      <wsdl:input message="tns:getDoctorIDSoapIn" />
+      <wsdl:output message="tns:getDoctorIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDoctorFirstName">
+      <wsdl:input message="tns:getDoctorFirstNameSoapIn" />
+      <wsdl:output message="tns:getDoctorFirstNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDoctorLastName">
+      <wsdl:input message="tns:getDoctorLastNameSoapIn" />
+      <wsdl:output message="tns:getDoctorLastNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDoctorCenterID">
+      <wsdl:input message="tns:getDoctorCenterIDSoapIn" />
+      <wsdl:output message="tns:getDoctorCenterIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateDoctorDetails">
+      <wsdl:input message="tns:updateDoctorDetailsSoapIn" />
+      <wsdl:output message="tns:updateDoctorDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDonationDate">
+      <wsdl:input message="tns:getDonationDateSoapIn" />
+      <wsdl:output message="tns:getDonationDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addDonation">
+      <wsdl:input message="tns:addDonationSoapIn" />
+      <wsdl:output message="tns:addDonationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="completeDonation">
+      <wsdl:input message="tns:completeDonationSoapIn" />
+      <wsdl:output message="tns:completeDonationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserPastDonations">
+      <wsdl:input message="tns:getUserPastDonationsSoapIn" />
+      <wsdl:output message="tns:getUserPastDonationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserFutureDonations">
+      <wsdl:input message="tns:getUserFutureDonationsSoapIn" />
+      <wsdl:output message="tns:getUserFutureDonationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCenterPastDonations">
+      <wsdl:input message="tns:getCenterPastDonationsSoapIn" />
+      <wsdl:output message="tns:getCenterPastDonationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCenterFutureDonations">
+      <wsdl:input message="tns:getCenterFutureDonationsSoapIn" />
+      <wsdl:output message="tns:getCenterFutureDonationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCenterCity">
+      <wsdl:input message="tns:getCenterCitySoapIn" />
+      <wsdl:output message="tns:getCenterCitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCenterCountyList">
+      <wsdl:input message="tns:getCenterCountyListSoapIn" />
+      <wsdl:output message="tns:getCenterCountyListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCenterTownList">
+      <wsdl:input message="tns:getCenterTownListSoapIn" />
+      <wsdl:output message="tns:getCenterTownListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCenterAddress">
+      <wsdl:input message="tns:getCenterAddressSoapIn" />
+      <wsdl:output message="tns:getCenterAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCenterEmail">
+      <wsdl:input message="tns:getCenterEmailSoapIn" />
+      <wsdl:output message="tns:getCenterEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCenterID">
+      <wsdl:input message="tns:getCenterIDSoapIn" />
+      <wsdl:output message="tns:getCenterIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <soap:operation soapAction="http://tempuri.org/addUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <soap:operation soapAction="http://tempuri.org/deleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUserUsername">
+      <soap:operation soapAction="http://tempuri.org/updateUserUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUserPassword">
+      <soap:operation soapAction="http://tempuri.org/updateUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDonorID">
+      <soap:operation soapAction="http://tempuri.org/getDonorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDonorCNP">
+      <soap:operation soapAction="http://tempuri.org/getDonorCNP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDonorFirstName">
+      <soap:operation soapAction="http://tempuri.org/getDonorFirstName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDonorLastName">
+      <soap:operation soapAction="http://tempuri.org/getDonorLastName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDonorDOB">
+      <soap:operation soapAction="http://tempuri.org/getDonorDOB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDonorDetails">
+      <soap:operation soapAction="http://tempuri.org/updateDonorDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoctorID">
+      <soap:operation soapAction="http://tempuri.org/getDoctorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoctorFirstName">
+      <soap:operation soapAction="http://tempuri.org/getDoctorFirstName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoctorLastName">
+      <soap:operation soapAction="http://tempuri.org/getDoctorLastName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoctorCenterID">
+      <soap:operation soapAction="http://tempuri.org/getDoctorCenterID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDoctorDetails">
+      <soap:operation soapAction="http://tempuri.org/updateDoctorDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDonationDate">
+      <soap:operation soapAction="http://tempuri.org/getDonationDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addDonation">
+      <soap:operation soapAction="http://tempuri.org/addDonation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="completeDonation">
+      <soap:operation soapAction="http://tempuri.org/completeDonation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserPastDonations">
+      <soap:operation soapAction="http://tempuri.org/getUserPastDonations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserFutureDonations">
+      <soap:operation soapAction="http://tempuri.org/getUserFutureDonations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterPastDonations">
+      <soap:operation soapAction="http://tempuri.org/getCenterPastDonations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterFutureDonations">
+      <soap:operation soapAction="http://tempuri.org/getCenterFutureDonations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterCity">
+      <soap:operation soapAction="http://tempuri.org/getCenterCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterCountyList">
+      <soap:operation soapAction="http://tempuri.org/getCenterCountyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterTownList">
+      <soap:operation soapAction="http://tempuri.org/getCenterTownList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterAddress">
+      <soap:operation soapAction="http://tempuri.org/getCenterAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterEmail">
+      <soap:operation soapAction="http://tempuri.org/getCenterEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterID">
+      <soap:operation soapAction="http://tempuri.org/getCenterID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="login">
+      <soap12:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <soap12:operation soapAction="http://tempuri.org/addUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <soap12:operation soapAction="http://tempuri.org/deleteUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUserUsername">
+      <soap12:operation soapAction="http://tempuri.org/updateUserUsername" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUserPassword">
+      <soap12:operation soapAction="http://tempuri.org/updateUserPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDonorID">
+      <soap12:operation soapAction="http://tempuri.org/getDonorID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDonorCNP">
+      <soap12:operation soapAction="http://tempuri.org/getDonorCNP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDonorFirstName">
+      <soap12:operation soapAction="http://tempuri.org/getDonorFirstName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDonorLastName">
+      <soap12:operation soapAction="http://tempuri.org/getDonorLastName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDonorDOB">
+      <soap12:operation soapAction="http://tempuri.org/getDonorDOB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDonorDetails">
+      <soap12:operation soapAction="http://tempuri.org/updateDonorDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoctorID">
+      <soap12:operation soapAction="http://tempuri.org/getDoctorID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoctorFirstName">
+      <soap12:operation soapAction="http://tempuri.org/getDoctorFirstName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoctorLastName">
+      <soap12:operation soapAction="http://tempuri.org/getDoctorLastName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoctorCenterID">
+      <soap12:operation soapAction="http://tempuri.org/getDoctorCenterID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDoctorDetails">
+      <soap12:operation soapAction="http://tempuri.org/updateDoctorDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDonationDate">
+      <soap12:operation soapAction="http://tempuri.org/getDonationDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addDonation">
+      <soap12:operation soapAction="http://tempuri.org/addDonation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="completeDonation">
+      <soap12:operation soapAction="http://tempuri.org/completeDonation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserPastDonations">
+      <soap12:operation soapAction="http://tempuri.org/getUserPastDonations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserFutureDonations">
+      <soap12:operation soapAction="http://tempuri.org/getUserFutureDonations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterPastDonations">
+      <soap12:operation soapAction="http://tempuri.org/getCenterPastDonations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterFutureDonations">
+      <soap12:operation soapAction="http://tempuri.org/getCenterFutureDonations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterCity">
+      <soap12:operation soapAction="http://tempuri.org/getCenterCity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterCountyList">
+      <soap12:operation soapAction="http://tempuri.org/getCenterCountyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterTownList">
+      <soap12:operation soapAction="http://tempuri.org/getCenterTownList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterAddress">
+      <soap12:operation soapAction="http://tempuri.org/getCenterAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterEmail">
+      <soap12:operation soapAction="http://tempuri.org/getCenterEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCenterID">
+      <soap12:operation soapAction="http://tempuri.org/getCenterID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="https://localhost:44356/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="https://localhost:44356/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
