@@ -1,0 +1,3 @@
+Application realized in .NET with C# and SQL.
+The application is used to manage the blood resources that we can find in blood transfusion centers around Romania. It is a desktop application where users can create an account and it can be accessed by doctors that can add, remove and see the resources that are in the transfusion centers, and by patients that can see the resources and subscribe for a donation.
+The data is stored in a SQL database, that has several tables, connected by primary or secondary keys. The data can be manipulated by users through a Windows Form App. The client interface connects to web service where different SQL queries are called.
